@@ -84,8 +84,6 @@ _without_ loading whole Rails, use the generated shortcut task.
 
 ```ruby
 # lib/tasks/my_task_which_doesnt_need_rails.rake
-load File.expand_path("../node_config.rake", __FILE__)
-
 task :my_task_which_doesnt_need_rails => :node_config do
   puts(PetShop.node_config.foo.bar) #=> baz
 end
@@ -93,11 +91,6 @@ end
 
 Or as command line in your `Procfile` (https://github.com/ddollar/foreman)
 for a worker (https://github.com/defunkt/resque):
-
-```ruby
-# Rakefile
-load File.expand_path("../lib/tasks/node_config.rake", __FILE__)
-```
 
 ```
 worker: bundle exec rake node_config resque:work

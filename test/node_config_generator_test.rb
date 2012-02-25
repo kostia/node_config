@@ -28,7 +28,7 @@ class NodeConfigGeneratorTest < Rails::Generators::TestCase
     run_generator
     assert_file("lib/tasks/node_config.rake") do |rakefile|
       rakefile.squeeze(" ").must_equal(%Q{task :node_config do
-  load File.expand_path("../../../config/node_config.rb", __FILE__)
+  require File.expand_path("../../../config/node_config", __FILE__)
 end}.squeeze(" "))
     end
   end

@@ -17,7 +17,7 @@ class NodeConfigGenerator < Rails::Generators::Base
   def create_rakefile
     rakefile("node_config.rake") do
       %Q{task :node_config do
-  load File.expand_path("../../../config/node_config.rb", __FILE__)
+  require File.expand_path("../../../config/node_config", __FILE__)
 end}
     end
   end
