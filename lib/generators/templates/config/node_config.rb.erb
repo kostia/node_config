@@ -1,0 +1,7 @@
+require "node_config"
+
+module <%= @top_level_app_module %>
+  def self.node_config
+    @node_config ||= NodeConfig.load_file(File.expand_path("../node_config.yml", __FILE__))
+  end
+end
